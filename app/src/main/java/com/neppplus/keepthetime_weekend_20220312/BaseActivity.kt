@@ -25,6 +25,6 @@ abstract class BaseActivity : AppCompatActivity() {
 //    클래스 자체도 추상 클래스여야, 추상 함수 보유 가능.
 
     abstract fun setupEvents()
-    abstract fun setValue()
+    abstract fun setValues()
 
 }
