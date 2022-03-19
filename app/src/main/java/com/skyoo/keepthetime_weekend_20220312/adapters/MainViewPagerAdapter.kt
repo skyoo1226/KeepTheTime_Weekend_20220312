@@ -3,6 +3,8 @@ package com.skyoo.keepthetime_weekend_20220312.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.skyoo.keepthetime_weekend_20220312.fragments.AppointmentListFragment
+import com.skyoo.keepthetime_weekend_20220312.fragments.MyProfileFragment
 
 class MainViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getCount() = 2
