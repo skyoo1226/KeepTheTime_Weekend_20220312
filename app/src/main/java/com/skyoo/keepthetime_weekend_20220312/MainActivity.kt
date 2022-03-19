@@ -73,7 +73,7 @@ class MainActivity : BaseActivity() {
 
 //        상속받은 imgBack 숨김처리.
 
-//        imgBack.visibility = View.GONE
+        imgBack.visibility = View.GONE
 
     }
 
