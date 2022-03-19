@@ -6,20 +6,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
-        tools:context=".MainActivity">
+        tools:context=".ManageFriendListActivity">
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/mainViewPager2"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/friendTabLayout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/mainBottomNav"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/friendViewPager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:menu="@menu/bottom_nav_menu"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 </layout>
