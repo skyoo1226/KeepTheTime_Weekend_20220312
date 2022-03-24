@@ -14,6 +14,10 @@ import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.MarkerIcons
 import com.skyoo.keepthetime_weekend_20220312.databinding.ActivityEditAppointmentBinding
+import com.skyoo.keepthetime_weekend_20220312.datas.BasicResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -88,6 +92,28 @@ class EditAppointmentActivity : BaseActivity() {
             val lng = myMarker!!.position.longitude
 
 //      서버에 파라미터값들 전송(API 호출)
+            apiList.postRequestAppointment(
+                inputTitle,
+                serverDateTimeStr,
+                inputPlaceName,
+                lat,
+                lng,
+            ).enqueue(object : Callback<BasicResponse> {
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(mContext, "약속을 등록했습니다.", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+
+            })
 
         }
 
