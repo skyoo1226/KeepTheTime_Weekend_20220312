@@ -84,6 +84,12 @@ class EditAppointmentActivity : BaseActivity() {
 
         binding.btnSave.setOnClickListener {
             val inputTitle = binding.edtTitle.text.toString()
+
+            if (inputTitle.isEmpty()) {
+                Toast.makeText(mContext, "제목을 입력해야 합니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val serverFormat = SimpleDateFormat("yyyy-MM-dd HH:mm")
             val serverDateTimeStr = serverFormat.format(mSelectedDatetimeCal.time)
             val inputPlaceName = binding.edtPlaceName.text.toString()
