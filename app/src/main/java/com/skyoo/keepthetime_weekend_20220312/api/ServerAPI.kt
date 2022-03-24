@@ -66,7 +66,6 @@ class ServerAPI {
             }
 
 //            retrofit 변수는 절대 null일 리가 없다.
-
             return retrofit!!
 
         }

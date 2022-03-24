@@ -31,6 +31,9 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+//        상송받아온 imgAdd의 이벤트 처리
+
+
 //        바텀 네비게이션의 이벤트 처리.
         binding.mainBottomNav.setOnItemSelectedListener {
 
@@ -38,8 +41,12 @@ class MainActivity : BaseActivity() {
 //            it변수의 id값에 따라, 페이지 이동.
 
             binding.mainViewPager2.currentItem = when( it.itemId ) {
-                R.id.home -> 0
-                else -> 1
+                R.id.home -> {
+                    0
+                }
+                else -> {
+                    1
+                }
             }
 
             return@setOnItemSelectedListener true
