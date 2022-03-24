@@ -78,6 +78,19 @@ class EditAppointmentActivity : BaseActivity() {
             ).show()
         }
 
+        binding.btnSave.setOnClickListener {
+            val inputTitle = binding.edtTitle.text.toString()
+            val serverFormat = SimpleDateFormat("yyyy-MM-dd HH:mm")
+            val serverDateTimeStr = serverFormat.format(mSelectedDatetimeCal.time)
+            val inputPlaceName = binding.edtPlaceName.text.toString()
+//      지도에 찍은 장소를 서버에 보내기 위해...
+            val lat = myMarker!!.position.latitude
+            val lng = myMarker!!.position.longitude
+
+//      서버에 파라미터값들 전송(API 호출)
+
+        }
+
     }
 
     override fun setValues() {
