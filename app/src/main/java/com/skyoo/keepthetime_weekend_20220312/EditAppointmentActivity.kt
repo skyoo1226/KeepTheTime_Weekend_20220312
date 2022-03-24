@@ -8,6 +8,8 @@ import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.naver.maps.geometry.LatLng
+import com.naver.maps.map.CameraUpdate
 import com.skyoo.keepthetime_weekend_20220312.databinding.ActivityEditAppointmentBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -73,6 +75,12 @@ class EditAppointmentActivity : BaseActivity() {
     }
 
     override fun setValues() {
+//  지도 처음 시작 지점 좌표...난 회기역 2번 출구.
+        binding.mapView.getMapAsync {
+            val naverMap = it
+            val cameraUpdate = CameraUpdate.scrollTo((LatLng(37.589730475241765, 127.05857781302444)))
+            naverMap.moveCamera(cameraUpdate)
+        }
 
     }
 }

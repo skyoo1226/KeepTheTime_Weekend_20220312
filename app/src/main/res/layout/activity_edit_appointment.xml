@@ -72,6 +72,7 @@
 
 <!--   네이버 지도 배치     -->
         <com.naver.maps.map.MapView
+            android:id="@+id/mapView"
             android:layout_width="match_parent"
             android:layout_height="250dp"/>
 
