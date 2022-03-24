@@ -20,10 +20,16 @@ class AppointmentRecyclerAdapter(
     inner class  MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
 //  멤버변수 다시 작성, 실제 사용할 UI들을 가져와서 담아두자.
-
+        val txtTitle = view.findViewById<TextView>(R.id.txtTitle)
+        val txtDateTime = view.findViewById<TextView>(R.id.txtDateTime)
+        val txtPlaceName = view.findViewById<TextView>(R.id.txtPlaceName)
+        val imgMap = view.findViewById<ImageView>(R.id.imgMap)
 
 //  받아올 데이터만 AppointmentData로 변경
         fun bind( data: AppointmentData )  {
+            txtTitle.text = data.title
+            txtDateTime.text = data.datetime
+            txtPlaceName.text = data.place
 
         }
 
