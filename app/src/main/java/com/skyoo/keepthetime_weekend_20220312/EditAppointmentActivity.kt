@@ -89,11 +89,25 @@ class EditAppointmentActivity : BaseActivity() {
                 Toast.makeText(mContext, "제목을 입력해야 합니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            if (binding.txtDate.text == "약속 일자" || binding.txtTime.text == "약속 시간") {
+                Toast.makeText(mContext, "일시를 모두 선택해 주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             val serverFormat = SimpleDateFormat("yyyy-MM-dd HH:mm")
             val serverDateTimeStr = serverFormat.format(mSelectedDatetimeCal.time)
+
             val inputPlaceName = binding.edtPlaceName.text.toString()
-//      지도에 찍은 장소를 서버에 보내기 위해...
+            if (inputPlaceName.isEmpty()) {
+                Toast.makeText(mContext, "약속 장소의 이름을 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+//      myMarker가 실제로 만들어져 있는지? 체크. 그렇지 않다면 장소 입력 안내 + 함수 종료.
+            if (myMarker == null) {
+                Toast.makeText(mContext, "지도를 클릭해서, 약속 장소를 선택해 주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+                //      지도에 찍은 장소를 서버에 보내기 위해...
             val lat = myMarker!!.position.latitude
             val lng = myMarker!!.position.longitude
 
