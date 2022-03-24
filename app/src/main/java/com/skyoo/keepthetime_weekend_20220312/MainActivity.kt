@@ -1,5 +1,6 @@
 package com.skyoo.keepthetime_weekend_20220312
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -32,7 +33,12 @@ class MainActivity : BaseActivity() {
     override fun setupEvents() {
 
 //        상송받아온 imgAdd의 이벤트 처리
+        imgAdd.setOnClickListener {
 
+            val myIntent = Intent(mContext, EditAppointmentActivity::class.java)
+            startActivity(myIntent)
+
+        }
 
 //        바텀 네비게이션의 이벤트 처리.
         binding.mainBottomNav.setOnItemSelectedListener {
@@ -42,9 +48,11 @@ class MainActivity : BaseActivity() {
 
             binding.mainViewPager2.currentItem = when( it.itemId ) {
                 R.id.home -> {
+                    imgAdd.visibility = View.VISIBLE
                     0
                 }
                 else -> {
+                    imgAdd.visibility = View.GONE
                     1
                 }
             }
@@ -81,6 +89,7 @@ class MainActivity : BaseActivity() {
 //        상속받은 imgBack 숨김처리.
 
         imgBack.visibility = View.GONE
+        imgAdd.visibility = View.VISIBLE
 
     }
 
