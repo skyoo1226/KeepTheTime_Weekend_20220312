@@ -1,9 +1,11 @@
 package com.skyoo.keepthetime_weekend_20220312
 
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
+import android.widget.TimePicker
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.skyoo.keepthetime_weekend_20220312.databinding.ActivityEditAppointmentBinding
@@ -47,6 +49,25 @@ class EditAppointmentActivity : BaseActivity() {
                 mSelectedDatetimeCal.get(Calendar.DAY_OF_MONTH)
             ).show()
 
+        }
+
+        binding.txtTime.setOnClickListener {
+            val tsl = object : TimePickerDialog.OnTimeSetListener{
+                override fun onTimeSet(p0: TimePicker?, hourOfDay: Int, minute: Int) {
+                    mSelectedDatetimeCal.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                    mSelectedDatetimeCal.set(Calendar.MINUTE, minute)
+
+                    val sdf = SimpleDateFormat("a h시 m분")
+                    binding.txtTime.text = sdf.format(mSelectedDatetimeCal.time)
+                }
+            }
+            val tpd = TimePickerDialog(
+                mContext,
+                tsl,
+                12,
+                30,
+                false
+            ).show()
         }
 
     }
