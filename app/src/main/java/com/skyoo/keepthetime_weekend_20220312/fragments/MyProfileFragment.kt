@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.skyoo.keepthetime_weekend_20220312.ManageFriendListActivity
+import com.skyoo.keepthetime_weekend_20220312.ManageStartingPointActivity
 import com.skyoo.keepthetime_weekend_20220312.R
 import com.skyoo.keepthetime_weekend_20220312.SplashActivity
 import com.skyoo.keepthetime_weekend_20220312.databinding.FragmentMyProfileBinding
@@ -41,11 +42,17 @@ class MyProfileFragment : BaseFragment() {
 
     override fun setupEvents() {
 
+        binding.btnManageStartingPointList.setOnClickListener {
+
+            val myIntent = Intent(mContext, ManageStartingPointActivity::class.java)
+            startActivity(myIntent)
+
+        }
+
         binding.btnMyFriendsList.setOnClickListener {
 
             val myIntent = Intent(mContext, ManageFriendListActivity::class.java)
             startActivity(myIntent)
-
         }
 
         binding.btnLogout.setOnClickListener {

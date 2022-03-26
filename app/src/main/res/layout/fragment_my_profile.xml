@@ -41,7 +41,6 @@
 
             </LinearLayout>
 
-
         </LinearLayout>
 
         <TextView
@@ -75,13 +74,13 @@
                 android:layout_height="30dp"
                 android:src="@drawable/right_arrow"/>
 
-
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/light_gray" />
+
 
         <LinearLayout
             android:id="@+id/btnManageStartingPointList"
@@ -115,7 +114,6 @@
             android:layout_height="1dp"
             android:background="@color/light_gray" />
 
-
         <LinearLayout
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
@@ -130,14 +128,12 @@
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
-
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/light_gray" />
-
 
     </LinearLayout>
 
