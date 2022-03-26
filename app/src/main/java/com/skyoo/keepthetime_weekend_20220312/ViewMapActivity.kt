@@ -64,12 +64,11 @@ class ViewMapActivity : BaseActivity() {
 
             naverMap.moveCamera( cameraUpdate )
 
-
             val marker = Marker()
             marker.position = latLng
             marker.map = naverMap
 //            대중교통 길찾기 라이브러리 활용 => 소요 시간 + 비용 정보창 띄우기.
-            val odSay = ODsayService.init(mContext, "ibCHTdMdnDJJp7pwFm4x8HVWc+RS7nNQ7RToDs9FjME")
+            val odSay = ODsayService.init(mContext, "8jz1Zv1jYbAImHULeFk7HeqPSsa8u27huptE6NPUDHw")
             odSay.requestSearchPubTransPath(
                 mAppointmentData.start_longitude.toString(), // 출발지 X좌표 (경도)를 String으로
                 mAppointmentData.start_latitude.toString(),
@@ -134,6 +133,41 @@ class ViewMapActivity : BaseActivity() {
 //                        출발지 먼저 추가
                         val startLatLng = LatLng( mAppointmentData.start_latitude,  mAppointmentData.start_longitude )
                         pathPoints.add( startLatLng )
+
+//                        출발/도착지 사이에, 대중교통의 정거장 좌표들을 전부 추가. => 대중교통 길찾기 API의 또 다른 영역 파싱.
+//                        첫번째 경로의 => 이동 경로 세부 목록 파싱
+                        val subPathArr = firstPathObj.getJSONArray("subPath")
+//                        subPathArr에 들어있는 내용물의 갯수직전까지 반복. (ex. 5개 들어있다 : 0,1,2,3,4번째 추출)
+                        for ( i  in  0 until subPathArr.length() ) {
+//                            subPath"Arr" 에서, 반복문을 도는 i변수값에 맞는 위치에 있는, JSONObject {  } 추출
+                            val subPathObj = subPathArr.getJSONObject(i)
+                            Log.d("세부경로", subPathObj.toString())
+//                            세부 경로 중에서, 정거장 목록을 주는 세부경로만 추가 파싱.
+//                            subPathObj 내부에, "passStopList"라는 이름표의 데이터가 있는지? 확인.
+//                            JSONObject의 isNull 함수 : 해당 이름표에 데이터가 없는가? => NOT 연산 : 있는가?
+                            if ( !subPathObj.isNull("passStopList") ) {
+                                val passStopListObj = subPathObj.getJSONObject("passStopList")
+                                Log.d("정거장목록", passStopListObj.toString())
+//                                정거장 목록의 위도/경도 추출 => pathPoints ArrayList에 좌표 추가.
+                                val stationsArr = passStopListObj.getJSONArray("stations")
+                                for (j in  0 until stationsArr.length()) {
+                                    val stationObj = stationsArr.getJSONObject(j)
+                                    Log.d("정거장내역", stationObj.toString())
+
+//                                    위도 (String으로 길찾기라이브러리가 제공) > Double로 변환 추출 => lat 변수에 저장.
+                                    val stationLat =  stationObj.getString("y").toDouble()
+                                    val stationLng = stationObj.getString("x").toDouble()
+
+//                                    네이버 지도 좌표 객체로 만들자.
+                                    val stationLatLng = LatLng( stationLat,  stationLng )
+
+//                                    경로선이 지나갈 좌표로 추가.
+                                    pathPoints.add( stationLatLng )
+
+                                }
+
+                            }
+                        }
 
 //                        도착지 마지막에 추가
                         pathPoints.add( latLng )  // 지도 로딩 초반부에 만든 변수 재활용
