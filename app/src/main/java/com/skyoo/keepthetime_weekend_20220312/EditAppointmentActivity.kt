@@ -13,13 +13,16 @@ import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.MarkerIcons
+import com.skyoo.keepthetime_weekend_20220312.adapters.StartingPointSpinnerAdapter
 import com.skyoo.keepthetime_weekend_20220312.databinding.ActivityEditAppointmentBinding
 import com.skyoo.keepthetime_weekend_20220312.datas.BasicResponse
+import com.skyoo.keepthetime_weekend_20220312.datas.StartingPointData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class EditAppointmentActivity : BaseActivity() {
 
@@ -27,8 +30,16 @@ class EditAppointmentActivity : BaseActivity() {
 
     val mSelectedDatetimeCal = Calendar.getInstance()
 
+
+
+
     //  지도에 띄워줄 목적지 표시해줄 마커 변수.
     var myMarker : Marker? = null
+
+    //    내가 만들어둔 출발지 목록 List
+    val mStartingPointList = ArrayList<StartingPointData>()
+
+    lateinit var mStartingPointSpinnerAdapter: StartingPointSpinnerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +49,10 @@ class EditAppointmentActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+
+
+
 
         binding.txtDate.setOnClickListener {
             val dsl = object : DatePickerDialog.OnDateSetListener {
@@ -111,6 +126,10 @@ class EditAppointmentActivity : BaseActivity() {
             val lat = myMarker!!.position.latitude
             val lng = myMarker!!.position.longitude
 
+
+
+
+
 //      서버에 파라미터값들 전송(API 호출)
             apiList.postRequestAppointment(
                 inputTitle,
@@ -140,6 +159,9 @@ class EditAppointmentActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+
+
 //  지도 처음 시작 지점 좌표...난 회기역 2번 출구.
         binding.mapView.getMapAsync {
             val naverMap = it
@@ -175,5 +197,36 @@ class EditAppointmentActivity : BaseActivity() {
             }
         }
 
+        getMyStartingPointFromServer()
+
+        mStartingPointSpinnerAdapter = StartingPointSpinnerAdapter(mContext, R.layout.starting_point_list_item, mStartingPointList)
+        binding.startingPointSpinner.adapter = mStartingPointSpinnerAdapter
+
     }
+
+
+
+//    내 출발지 목록이 어떤것들이 있는지 불러오자.
+
+    fun getMyStartingPointFromServer() {
+
+        apiList.getRequestMyStartingPoint().enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                val br = response.body()!!
+
+                mStartingPointList.addAll( br.data.places )
+
+                mStartingPointSpinnerAdapter.notifyDataSetChanged()
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
+
+    }
+
 }

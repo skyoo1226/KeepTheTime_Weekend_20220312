@@ -7,85 +7,126 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp"
+
         tools:context=".EditAppointmentActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="약속 제목" />
-
-        <EditText
-            android:id="@+id/edtTitle"
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="약속 제목을 입력하세요."
-            android:singleLine="true"/>
+            android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="약속 일시"
-            android:layout_marginTop="10dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/txtDate"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="15dp"
-                android:textSize="15sp"
-                android:background="@drawable/gray_border_box"
-                android:textColor="@color/black"
-                android:gravity="center"
-                android:text="약속 일자"/>
+                android:orientation="vertical"
+                android:padding="20dp">
 
-            <TextView
-                android:id="@+id/txtTime"
-                android:layout_width="0dp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="약속 제목" />
+
+                <EditText
+                    android:id="@+id/edtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="약속 제목을 입력하세요."
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="약속 일시"
+                    android:layout_marginTop="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="15dp"
+                        android:textSize="15sp"
+                        android:background="@drawable/gray_border_box"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="약속 일자"/>
+
+                    <TextView
+                        android:id="@+id/txtTime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="15dp"
+                        android:textSize="15sp"
+                        android:background="@drawable/gray_border_box"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="약속 시간"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="출발 장소"
+                    android:layout_marginTop="10dp"/>
+
+                <Spinner
+                    android:id="@+id/startingPointSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="약속 장소"
+                    android:layout_marginTop="10dp"/>
+
+                <EditText
+                    android:id="@+id/edtPlaceName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="장소를 입력하세요."
+                    android:singleLine="true"/>
+
+                <!--   네이버 지도 배치     -->
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <com.naver.maps.map.MapView
+                    android:id="@+id/mapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp" />
+
+                <TextView
+                    android:id="@+id/txtScrollHelp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="15dp"
-                android:textSize="15sp"
-                android:background="@drawable/gray_border_box"
-                android:textColor="@color/black"
-                android:gravity="center"
-                android:text="약속 시간"/>
+                android:text="약속 저장하기"
+                android:layout_marginTop="5dp" />
 
-        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="약속 장소"
-            android:layout_marginTop="10dp"/>
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/edtPlaceName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="장소를 입력하세요."
-            android:singleLine="true"/>
+        </ScrollView>
 
-<!--   네이버 지도 배치     -->
-        <com.naver.maps.map.MapView
-            android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"/>
-
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="약속 저장하기"
-            android:layout_marginTop="5dp" />            />
 
     </LinearLayout>
 </layout>
-

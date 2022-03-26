@@ -55,6 +55,9 @@ abstract class BaseActivity : AppCompatActivity() {
 //    클래스 자체도 추상 클래스여야, 추상 함수 보유 가능.
 
     abstract fun setupEvents()
+
+
+
     abstract fun setValues()
 
 //    커스텀 액션바 설정 함수 추가. => 실행 내용도 작성, 구체적 방안도 상속 시키자.

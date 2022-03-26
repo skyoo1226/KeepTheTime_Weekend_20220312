@@ -67,6 +67,9 @@ interface APIList {
     fun postRequestAppointment(
         @Field("title") title: String,
         @Field("datetime") datetime: String,
+
+
+
         @Field("place") placeName: String,
         @Field("latitude") lat: Double,
         @Field("longitude") lng: Double,
@@ -77,5 +80,14 @@ interface APIList {
 
     @GET("/user/place")
     fun getRequestMyStartingPoint() : Call<BasicResponse>
+
+    @FormUrlEncoded
+    @POST("/user/place")
+    fun postRequestAddStartingPoint(
+        @Field("name") name: String,
+        @Field("latitude") lat: Double,
+        @Field("longitude") lng: Double,
+        @Field("is_primary") isPrimary: Boolean,
+    ) : Call<BasicResponse>
 
 }
