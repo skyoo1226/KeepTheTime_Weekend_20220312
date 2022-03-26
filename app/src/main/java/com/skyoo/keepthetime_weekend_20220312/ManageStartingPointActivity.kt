@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.skyoo.keepthetime_weekend_20220312.adapters.StartingPointRecyclerAdapter
 import com.skyoo.keepthetime_weekend_20220312.databinding.ActivityManageStartingPointBinding
 import com.skyoo.keepthetime_weekend_20220312.datas.BasicResponse
 import com.skyoo.keepthetime_weekend_20220312.datas.StartingPointData
@@ -17,6 +19,8 @@ class ManageStartingPointActivity : BaseActivity() {
 
     val mStartingPointList = ArrayList<StartingPointData>()
 
+    lateinit var mAdapter: StartingPointRecyclerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_manage_starting_point)
@@ -26,15 +30,17 @@ class ManageStartingPointActivity : BaseActivity() {
     override fun setupEvents() {
     }
     override fun setValues() {
-
         txtTitle.text = "출발지 목록 관리"
 
         getMyStartingPointFromServer()
 
+        mAdapter = StartingPointRecyclerAdapter( mContext, mStartingPointList )
+        binding.myStartingPointRecyclerView.adapter = mAdapter
+        binding.myStartingPointRecyclerView.layoutManager = LinearLayoutManager(mContext)
+
     }
 
     fun getMyStartingPointFromServer() {
-
         apiList.getRequestMyStartingPoint().enqueue( object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
@@ -44,15 +50,14 @@ class ManageStartingPointActivity : BaseActivity() {
                 for ( myPlace in  br.data.places ) {
                     Log.d("내출발장소", myPlace.name)
                 }
+                mStartingPointList.addAll( br.data.places )
+
+                mAdapter.notifyDataSetChanged()
 
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
             }
-
         })
-
     }
-
 }
