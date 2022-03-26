@@ -9,6 +9,7 @@
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/activity_edit_appointment.xml" value="0.2" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/activity_login.xml" value="0.12685185185185185" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/activity_manage_friend_list.xml" value="0.12685185185185185" />
+        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/activity_manage_starting_point.xml" value="0.1" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/activity_search_user.xml" value="0.12685185185185185" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/activity_sign_up.xml" value="0.12685185185185185" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/activity_splash.xml" value="0.12685185185185185" />
@@ -16,14 +17,16 @@
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/appointment_list_item.xml" value="0.1" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/fragment_appointment_list.xml" value="0.12685185185185185" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/fragment_my_friend_list.xml" value="0.12685185185185185" />
-        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/fragment_my_profile.xml" value="0.12685185185185185" />
+        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/fragment_my_profile.xml" value="0.1" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/fragment_requested_user_list.xml" value="0.12685185185185185" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/friend_list_item.xml" value="0.12685185185185185" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/login.xml" value="0.12685185185185185" />
+        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/manage_starting_point.xml" value="0.1" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/my_custom_action_bar.xml" value="0.2" />
-        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/place_info_window_content.xml" value="0.1" />
+        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/place_info_window_content.xml" value="0.25" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/requested_user_list_item.xml" value="0.12685185185185185" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/searched_user_list_item.xml" value="0.12685185185185185" />
+        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/layout/starting_point_list_item.xml" value="0.1" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_Weekend_20220312/app/src/main/res/menu/bottom_nav_menu.xml" value="0.12685185185185185" />
       </map>
     </option>

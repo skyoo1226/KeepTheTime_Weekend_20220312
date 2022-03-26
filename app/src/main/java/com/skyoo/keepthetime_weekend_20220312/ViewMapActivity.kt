@@ -64,9 +64,14 @@ class ViewMapActivity : BaseActivity() {
 
             naverMap.moveCamera( cameraUpdate )
 
+//            도착지 마커 찍기
             val marker = Marker()
             marker.position = latLng
             marker.map = naverMap
+
+//            출발지 마커 찍기
+
+
 //            대중교통 길찾기 라이브러리 활용 => 소요 시간 + 비용 정보창 띄우기.
             val odSay = ODsayService.init(mContext, "8jz1Zv1jYbAImHULeFk7HeqPSsa8u27huptE6NPUDHw")
             odSay.requestSearchPubTransPath(

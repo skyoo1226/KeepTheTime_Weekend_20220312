@@ -34,7 +34,6 @@ class LoginActivity : BaseActivity() {
 
 //            isChecked변수에, 지금 체크 되었는지? 해제되었는지? 알려줌.
 //            알려주는 값을, ContextUtil의 기능 활용해서 저장.
-
             ContextUtil.setAutoLogin(mContext, isChecked)
 
         }
@@ -52,7 +51,6 @@ class LoginActivity : BaseActivity() {
             val inputPw = binding.edtPassword.text.toString()
 
 //            keepthetime.xyz/로그인  기능에, 아이디/비번을 보내보자.
-
             apiList.postRequestLogin(inputId, inputPw).enqueue(object :  Callback<BasicResponse> {
                 override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 //                    로그인 결과가 성공이던 / 실패던 응답 (response 변수) 자체는 돌아온 경우.
