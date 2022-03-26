@@ -11,6 +11,7 @@ import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
+import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.overlay.PathOverlay
 import com.skyoo.keepthetime_weekend_20220312.databinding.ActivityViewMapBinding
 import com.skyoo.keepthetime_weekend_20220312.datas.AppointmentData
@@ -69,8 +70,13 @@ class ViewMapActivity : BaseActivity() {
             marker.position = latLng
             marker.map = naverMap
 
-//            출발지 마커 찍기
+//            출발지 마커 찍기 + 다른 마커 활용
+            val startMarker = Marker()
+            startMarker.position =  LatLng(  mAppointmentData.start_latitude, mAppointmentData.start_longitude  )
 
+            startMarker.icon = OverlayImage.fromResource(R.drawable.start_marker)
+
+            startMarker.map = naverMap
 
 //            대중교통 길찾기 라이브러리 활용 => 소요 시간 + 비용 정보창 띄우기.
             val odSay = ODsayService.init(mContext, "8jz1Zv1jYbAImHULeFk7HeqPSsa8u27huptE6NPUDHw")
