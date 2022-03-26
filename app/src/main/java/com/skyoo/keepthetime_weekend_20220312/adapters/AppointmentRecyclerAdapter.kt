@@ -36,6 +36,9 @@ class AppointmentRecyclerAdapter(
             imgMap.setOnClickListener {
 //      지도만 크게 보는 화면으로 이동.
                 val myIntent = Intent(mContext, ViewMapActivity::class.java)
+
+
+
 //          startActivity는 화면, 프래그먼트에서만 상속 받는 기능임 => Context가 상속. 그래서 mContext이용.
                 mContext.startActivity(myIntent)
 

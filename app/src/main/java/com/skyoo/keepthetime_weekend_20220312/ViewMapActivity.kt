@@ -11,9 +11,14 @@ class ViewMapActivity : BaseActivity() {
 
     lateinit var binding : ActivityViewMapBinding
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view_map)
+
+
+
         setupEvents()
         setValues()
     }
