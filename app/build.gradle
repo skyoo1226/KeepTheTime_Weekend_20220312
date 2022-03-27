@@ -38,11 +38,16 @@ android {
 
 dependencies {
 
+    implementation 'com.facebook.android:facebook-login:8.1.0' // 페북 로그인 전용 라이브러리 (구버젼 테스트)
+
     implementation "com.kakao.sdk:v2-user:2.9.0"
+
     implementation files('libs/ODsayAndroidSDK.aar')
+    
     implementation 'com.naver.maps:map-sdk:3.14.0'
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.1.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

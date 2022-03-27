@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-
+        android:padding="20dp"
         tools:context=".EditAppointmentActivity">
 
         <ScrollView
@@ -81,6 +81,7 @@
                     android:id="@+id/startingPointSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:spinnerMode="dialog"
                     android:layout_marginTop="5dp"/>
 
                 <TextView
@@ -112,8 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
-
-            </FrameLayout>
+                </FrameLayout>
 
             <Button
                 android:id="@+id/btnSave"

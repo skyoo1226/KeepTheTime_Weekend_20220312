@@ -64,16 +64,18 @@ interface APIList {
 
     @FormUrlEncoded
     @POST("/appointment")
-    fun postRequestAppointment(
+    fun postRequestAddAppointment(
+
         @Field("title") title: String,
         @Field("datetime") datetime: String,
-
-
-
+        @Field("start_place") startPlaceName: String,
+        @Field("start_latitude") startLat: Double,
+        @Field("start_longitude") startLng: Double,
         @Field("place") placeName: String,
         @Field("latitude") lat: Double,
         @Field("longitude") lng: Double,
-    ) : Call<BasicResponse>
+
+        ) : Call<BasicResponse>
 
     @GET("/appointment")
     fun getRequestMyAppointment() : Call<BasicResponse>
@@ -88,6 +90,14 @@ interface APIList {
         @Field("latitude") lat: Double,
         @Field("longitude") lng: Double,
         @Field("is_primary") isPrimary: Boolean,
+    ) : Call<BasicResponse>
+
+    @FormUrlEncoded
+    @POST("/user/social")
+    fun postRequestSocialLogin(
+        @Field("provider") provider: String,
+        @Field("uid") uid: String,
+        @Field("nick_name") nick: String,
     ) : Call<BasicResponse>
 
 }

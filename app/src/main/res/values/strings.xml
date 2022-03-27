@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">약속지킴_주말</string>
 
-
-
+    <string name="facebook_app_id">3024035607907770</string>
+    <string name="fb_login_protocol_scheme">fb3024035607907770</string>
+    <string name="facebook_client_token">7fe3c9e9b33d181f68741116c1dde565</string>
 
 </resources>
