@@ -40,9 +40,7 @@ class StartingPointRecyclerAdapter(
             else {
                 txtPrimary.visibility = View.GONE
             }
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

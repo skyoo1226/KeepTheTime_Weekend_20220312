@@ -14,9 +14,11 @@ import retrofit2.Response
 class EditStartingPointActivity : BaseActivity() {
 
     lateinit var binding: ActivityEditStartingPointBinding
-    //    하나의 마커가 계속 위치만 변경. =>  멤버변수
+
+//    하나의 마커가 계속 위치만 변경. =>  멤버변수
 //    처음에는 안 찍혀있게. (마커가 없게) => null 로 초기값
     var pointMarker : Marker? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_starting_point)

@@ -32,5 +32,4 @@ class RequestedUserListFragment : BaseFragment() {
 
     }
 
-
 }

@@ -73,11 +73,8 @@ class MainActivity : BaseActivity() {
                     0 -> R.id.home
                     else -> R.id.profile
                 }
-
             }
-
         } )
-
     }
 
     override fun setValues() {
@@ -87,11 +84,8 @@ class MainActivity : BaseActivity() {
         binding.mainViewPager2.adapter = mvp2a
 
 //        상속받은 imgBack 숨김처리.
-
         imgBack.visibility = View.GONE
         imgAdd.visibility = View.VISIBLE
 
     }
-
-
 }

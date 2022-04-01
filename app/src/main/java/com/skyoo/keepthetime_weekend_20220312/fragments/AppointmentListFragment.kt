@@ -72,16 +72,11 @@ class AppointmentListFragment : BaseFragment() {
                     mAdapter.notifyDataSetChanged()
 
                 }
-
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
             }
-
         })
-
     }
-
-
 }

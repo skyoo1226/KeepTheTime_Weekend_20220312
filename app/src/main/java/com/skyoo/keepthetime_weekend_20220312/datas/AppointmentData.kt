@@ -13,5 +13,6 @@ class AppointmentData(
     val place: String,
     val latitude: Double,
     val longitude: Double,
-) : Serializable {
+
+    ) : Serializable {
 }

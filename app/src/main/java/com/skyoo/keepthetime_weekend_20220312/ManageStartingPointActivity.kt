@@ -37,7 +37,6 @@ class ManageStartingPointActivity : BaseActivity() {
             startActivity(myIntent)
 
         }
-
     }
     override fun setValues() {
         txtTitle.text = "출발지 목록 관리"
@@ -58,10 +57,11 @@ class ManageStartingPointActivity : BaseActivity() {
 
                 val br = response.body()!!  // JSONObject / JSONArray 등의 중간 형태 skip. 바로 일반 클래스로 담아줌.
 
-//                ArrayList의 for문 예시
-                for ( myPlace in  br.data.places ) {
-                    Log.d("내출발장소", myPlace.name)
-                }
+//                ArrayList의 for문 예시  -- 지울지? 말지?
+//                for ( myPlace in  br.data.places ) {
+//                    Log.d("내출발장소", myPlace.name)
+//                }
+
                 mStartingPointList.addAll( br.data.places )
 
                 mAdapter.notifyDataSetChanged()
@@ -69,6 +69,7 @@ class ManageStartingPointActivity : BaseActivity() {
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
             }
         })
     }

@@ -38,10 +38,13 @@ android {
 
 dependencies {
 
-    implementation 'com.facebook.android:facebook-login:8.1.0' // 페북 로그인 전용 라이브러리 (구버젼 테스트)
+    // 페북 로그인 전용 라이브러리 (구버젼 테스트)
+    implementation 'com.facebook.android:facebook-login:8.1.0'
 
+    // 카카오 로그인
     implementation "com.kakao.sdk:v2-user:2.9.0"
 
+    // 우리가 직접 추가한 파일 (ODSay~~.aar) 을 라이브러리로 활용
     implementation files('libs/ODsayAndroidSDK.aar')
     
     implementation 'com.naver.maps:map-sdk:3.14.0'

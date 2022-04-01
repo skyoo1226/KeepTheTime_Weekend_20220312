@@ -13,7 +13,6 @@ class MyFCM : FirebaseMessagingService() {
         super.onMessageReceived(message)
 
 //        화면에 앱이 켜져있는 상태로 알림이 오면 실행할 코드.
-
         val title = message.notification!!.title
 
         Log.d("푸시알림수신", title!!)

@@ -16,7 +16,7 @@ import com.skyoo.keepthetime_weekend_20220312.datas.UserData
 
 class AppointmentRecyclerAdapter(
     val mContext: Context,
-    val mList: List<AppointmentData> //상속처만 변경
+    val mList: List<AppointmentData> //상속처만 변경. 뷰 홀더 사용하면, resId를 받지 않아도 됨.
 ) : RecyclerView.Adapter<AppointmentRecyclerAdapter.MyViewHolder>() {
 
     inner class  MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -44,19 +44,18 @@ class AppointmentRecyclerAdapter(
                 mContext.startActivity(myIntent)
 
             }
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-//  xml 경로만 변경
+//      xml 경로만 변경
         val view = LayoutInflater.from(mContext).inflate(R.layout.appointment_list_item, parent, false)
         return  MyViewHolder( view )
 
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
 //  실제 출력할 데이터
         val data = mList[position]
 

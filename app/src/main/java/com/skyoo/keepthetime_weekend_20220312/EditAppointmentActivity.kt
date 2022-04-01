@@ -113,7 +113,7 @@ class EditAppointmentActivity : BaseActivity() {
                 override fun onTimeSet(p0: TimePicker?, hourOfDay: Int, minute: Int) {
 //                    선택된 일시에, 시간/분 저장 => 시간 항목에 hourOfDay, 분 항목에 minute
                     mSelectedDatetimeCal.set(Calendar.HOUR_OF_DAY, hourOfDay)
-                    mSelectedDatetimeCal.set(Calendar.MINUTE,  minute)
+                    mSelectedDatetimeCal.set(Calendar.MINUTE, minute)
 //                    txtTime의 문구를 "오후 7시 5분" 양식으로 가공 => SimpleDateFormat 사용
                     val sdf = SimpleDateFormat("a h시 m분")
                     binding.txtTime.text = sdf.format( mSelectedDatetimeCal.time ) // Date형태인 time 변수 활용.
@@ -165,7 +165,6 @@ class EditAppointmentActivity : BaseActivity() {
             val selectedStartingPoint =  mStartingPointList[selectedPosition]
 
 //            서버에 파라미터값들 전송. (API 호출)
-
             apiList.postRequestAddAppointment(
                 inputTitle,
                 serverDateTimeStr,
@@ -211,25 +210,25 @@ class EditAppointmentActivity : BaseActivity() {
         mStartingPointSpinnerAdapter = StartingPointSpinnerAdapter(mContext, R.layout.starting_point_list_item, mStartingPointList)
         binding.startingPointSpinner.adapter = mStartingPointSpinnerAdapter
     }
-    //   네이버 지도를 가지고, 출발지/도착지 등을 그려주는 함수.
+//   네이버 지도를 가지고, 출발지/도착지 등을 그려주는 함수.
     fun setStartAndEndToNaverMap() {
-//        혹시 지도가 안불러졌는지? 밑의 코드 실행 X. (안정성 보강)
-//        스피너 이벤트처리 때문에, 지도로딩보다 먼저 실행되었는가?
+//   혹시 지도가 안불러졌는지? 밑의 코드 실행 X. (안정성 보강)
+//   스피너 이벤트처리 때문에, 지도로딩보다 먼저 실행되었는가?
         if (mNaverMap == null) {
             return
         }
-//            mNaverMap은 null 아니다.
+//   mNaverMap은 null 아니다.
         val naverMap = mNaverMap!!
-//        출발지가 선택되지 않았는지?
+//   출발지가 선택되지 않았는지?
         if (mSelectedStartPoint == null) {
             return
         }
-//            기본 지도의 시작 화면 : 서울시청. => 네이버지도의 시작 좌표 : 선택한 도착지 좌표
+//        기본 지도의 시작 화면 : 서울시청. => 네이버지도의 시작 좌표 : 선택한 도착지 좌표
 //        출발지 좌표 변수
         val startLatLng = LatLng(  mSelectedStartPoint!!.latitude, mSelectedStartPoint!!.longitude )
         val cameraUpdate =  CameraUpdate.scrollTo( startLatLng )
         naverMap.moveCamera( cameraUpdate )
-//            출발지 위치에 마커를 찍자.
+//        출발지 위치에 마커를 찍자.
 //        아직 마커가 없을때만 생성.
         if (mStartMarker == null) {
             mStartMarker = Marker()
@@ -242,6 +241,7 @@ class EditAppointmentActivity : BaseActivity() {
 //            마커 크기 변경
         mStartMarker!!.width = 50
         mStartMarker!!.height = 80
+
 //        출발지 세팅이 끝나면, 도착지도 있는지 검사.
 //        도착지가 있어야 도착 관련 정보도 그려주자.
         if (mAppointmentLatLng == null) {
@@ -257,6 +257,7 @@ class EditAppointmentActivity : BaseActivity() {
 //        위치 이동
         myMarker!!.position = mAppointmentLatLng!!
         myMarker!!.map = naverMap
+
 //        출발지 / 도착지가 모두 반영되는 구조 완성.
 //        길찾기 API 호출 => 결과 분석, 화면에 추가 반영. (선 긋기 / 정보 표시)
         val odSay = ODsayService.init(mContext, "8jz1Zv1jYbAImHULeFk7HeqPSsa8u27huptE6NPUDHw")
@@ -279,6 +280,7 @@ class EditAppointmentActivity : BaseActivity() {
 //                    실제 데이터들은 Obj / Arr 등의 이름을 덧붙이지 않음. (강사 개인 취향)
                     val totalTime = infoObj.getInt("totalTime")
                     val payment = infoObj.getInt("payment")
+
 //                    네이버 지도의 정보창 기능에 연동.
                     val infoWindow = InfoWindow()
                     infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(mContext) {
@@ -287,9 +289,11 @@ class EditAppointmentActivity : BaseActivity() {
                             val txtPlaceName = view.findViewById<TextView>(R.id.txtPlaceName)
                             val txtTotalTime = view.findViewById<TextView>(R.id.txtTotalTime)
                             val txtPayment = view.findViewById<TextView>(R.id.txtPayment)
+
                             txtPlaceName.text = binding.edtPlaceName.text.toString()
                             txtTotalTime.text = "${totalTime}분 소요"
                             txtPayment.text = "${ NumberFormat.getNumberInstance(Locale.KOREA).format(payment) }원"
+
                             return view
                         }
                     }
@@ -304,6 +308,7 @@ class EditAppointmentActivity : BaseActivity() {
                     val pathCoordList = ArrayList<LatLng>()
 
                     pathCoordList.add( startLatLng )
+
 //                    첫번째 경로의 > 세부 경로 파싱 > 경로선 기능으로 그려주기. (정거장 좌표 목록을 경로선 좌표목록에 추가)
                     val subPathArr = firstPathObj.getJSONArray("subPath")
                     for (i  in  0 until subPathArr.length()) {
@@ -324,9 +329,7 @@ class EditAppointmentActivity : BaseActivity() {
 //                    마지막으로 목적지 좌표 추가.
                     pathCoordList.add( mAppointmentLatLng!! )
 
-
 //                    모든 좌표가 추가되었으니, 지도에 나오도록
-
                     mPath!!.coords = pathCoordList
                     mPath!!.map = naverMap
 

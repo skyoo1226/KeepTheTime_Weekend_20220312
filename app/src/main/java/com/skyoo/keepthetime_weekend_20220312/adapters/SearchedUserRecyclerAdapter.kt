@@ -35,8 +35,8 @@ class SearchedUserRecyclerAdapter(
             txtNickname.text = data.nick_name
 
             btnRequestFriend.setOnClickListener {
-//                어댑터 내부에서, 버튼이 눌리면 할 일 설정.
 
+//                어댑터 내부에서, 버튼이 눌리면 할 일 설정.
 //                서버의 친구 요청 기능 실행.
 //                어댑터 내부 : apiList 변수 상속 X. 직접 만들어서 사용.
 
@@ -50,19 +50,14 @@ class SearchedUserRecyclerAdapter(
                         call: Call<BasicResponse>,
                         response: Response<BasicResponse>
                     ) {
-
                     }
 
                     override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                     }
-
                 })
-
             }
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

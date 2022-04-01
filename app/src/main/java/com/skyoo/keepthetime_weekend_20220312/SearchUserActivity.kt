@@ -16,7 +16,6 @@ class SearchUserActivity : BaseActivity() {
 
     lateinit var binding: ActivitySearchUserBinding
 
-
     val mSearchedUserList = ArrayList<UserData>()
 
     lateinit var mAdapter: SearchedUserRecyclerAdapter
@@ -61,11 +60,8 @@ class SearchUserActivity : BaseActivity() {
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                 }
-
             } )
-
         }
-
     }
 
     override fun setValues() {

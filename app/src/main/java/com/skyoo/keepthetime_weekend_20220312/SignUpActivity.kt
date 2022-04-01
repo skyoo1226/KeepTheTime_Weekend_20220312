@@ -29,7 +29,6 @@ class SignUpActivity : BaseActivity() {
 //         2) APIList 인터페이스에 함수 추가 필요 X. (기존의 getRequestDuplicatedCheck 기능 재활용)
 //         3) 닉네임 중복 API 실행 (type-"NICK_NAME") / 응답 처리
 
-
         binding.btnEmailCheck.setOnClickListener {
 
 //            입력된 이메일 추출 > 서버의 중복확인 기능에 물어보자.
@@ -67,16 +66,12 @@ class SignUpActivity : BaseActivity() {
                         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
 
                     }
-
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                 }
-
-
             } )
-
         }
 
         binding.btnSignUp.setOnClickListener {
@@ -103,12 +98,8 @@ class SignUpActivity : BaseActivity() {
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                 }
-
-
             })
-
         }
-
     }
 
     override fun setValues() {

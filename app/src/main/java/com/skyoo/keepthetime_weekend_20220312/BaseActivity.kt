@@ -16,13 +16,12 @@ import com.skyoo.keepthetime_weekend_20220312.api.ServerAPI
 abstract class BaseActivity : AppCompatActivity() {
 
 //    멤버변수 - this를 화면이 만들어질때, 미리 담아두는 변수.
-
     lateinit var mContext: Context
 
-    //    apiList : 앱에서 활용할 수 있는 API 목록.
+//    apiList : 앱에서 활용할 수 있는 API 목록.
     lateinit var apiList: APIList
 
-    //    멤버변수 : 다른 화면들이 상속 받아 활용하는 변수.
+//    멤버변수 : 다른 화면들이 상속 받아 활용하는 변수.
     lateinit var txtTitle: TextView
     lateinit var imgBack: ImageView
     lateinit var imgAdd: ImageView
@@ -40,7 +39,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
 //       (액션바가 있는 화면이라면) 액션바도 설정
 //        코틀린의 null 관리 : ? 가 이 변수가 실제로 있는가? 질문. => 실제로 있다면, 별개의 함수 (setCustomActionBar) 실행
-
         supportActionBar?.let {
 
 //            supportActionBar가 null이 아닐때 (실체가 있을때) 실행할 코드 : let {  }
@@ -56,12 +54,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     abstract fun setupEvents()
 
-
-
     abstract fun setValues()
 
 //    커스텀 액션바 설정 함수 추가. => 실행 내용도 작성, 구체적 방안도 상속 시키자.
-
     fun setCustomActionBar() {
 
         val defaultActionBar = supportActionBar!!

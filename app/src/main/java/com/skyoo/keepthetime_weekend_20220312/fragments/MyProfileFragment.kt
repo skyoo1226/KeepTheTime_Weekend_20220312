@@ -39,7 +39,6 @@ class MyProfileFragment : BaseFragment() {
         setValues()
     }
 
-
     override fun setupEvents() {
 
         binding.btnManageStartingPointList.setOnClickListener {
@@ -80,11 +79,9 @@ class MyProfileFragment : BaseFragment() {
 //                    임시 코드
                     requireActivity().finish()
 
-
                 })
                 .setNegativeButton("취소", null)
                 .show()
-
 
         }
 
@@ -111,14 +108,11 @@ class MyProfileFragment : BaseFragment() {
                     binding.txtNickname.text =  br.data.user.nick_name
 
                 }
-
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
             }
-
         })
-
     }
 }

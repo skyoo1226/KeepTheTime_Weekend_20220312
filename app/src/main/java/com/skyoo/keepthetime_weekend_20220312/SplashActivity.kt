@@ -45,13 +45,11 @@ class SplashActivity : BaseActivity() {
 //                    내 정보가 잘 불러와졌다고 기록.
                     isMyInfoOk = true
                 }
-
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
             }
-
         } )
 
 
@@ -78,13 +76,11 @@ class SplashActivity : BaseActivity() {
             }
 
 //            화면이동 후에는 로딩화면 종료
-
             finish()
 
-
         }, 1000 )
-
     }
+
 //    내 앱/컴퓨터의 키 해쉬값 추출 함수
 
     fun getKeyHash() {
@@ -106,7 +102,4 @@ class SplashActivity : BaseActivity() {
             Log.d("등록된토큰", it.result!!)
         }
     }
-
-
-
 }

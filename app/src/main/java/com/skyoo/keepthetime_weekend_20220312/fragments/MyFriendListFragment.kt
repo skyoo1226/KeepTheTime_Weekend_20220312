@@ -41,7 +41,6 @@ class MyFriendListFragment : BaseFragment() {
         setValues()
     }
 
-
     override fun setupEvents() {
 
         binding.btnAddFriend.setOnClickListener {
@@ -82,16 +81,11 @@ class MyFriendListFragment : BaseFragment() {
                     mAdapter.notifyDataSetChanged()
 
                 }
-
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
             }
-
         })
-
     }
-
-
 }

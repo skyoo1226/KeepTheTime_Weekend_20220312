@@ -41,6 +41,4 @@ class ManageFriendListActivity : BaseActivity() {
         binding.friendTabLayout.setupWithViewPager( binding.friendViewPager )
 
     }
-
-
 }

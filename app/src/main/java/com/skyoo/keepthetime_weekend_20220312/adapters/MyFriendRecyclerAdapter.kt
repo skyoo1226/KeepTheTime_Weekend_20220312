@@ -34,7 +34,6 @@ class MyFriendRecyclerAdapter(
             Glide.with(mContext).load(data.profile_img).into(imgProfile)
 
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -45,8 +44,8 @@ class MyFriendRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-//        실제 출력할 데이터
 
+//        실제 출력할 데이터
         val data = mList[position]
 
 //        MyViewHolder도 일종의 클래스 : 멤버변수 / 함수를 가지고 있을 수 있다. => 활용하자.

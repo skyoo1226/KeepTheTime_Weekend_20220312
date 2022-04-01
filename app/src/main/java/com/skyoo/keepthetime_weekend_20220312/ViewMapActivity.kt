@@ -50,14 +50,12 @@ class ViewMapActivity : BaseActivity() {
         txtTitle.text = mAppointmentData.title
 
 //        지도 객체 얻어오기
-
         binding.mapView.getMapAsync {
 
             val naverMap = it
 
 //            naverMap을 이용해서, 약속 장소 좌표 표시
 //            약속 장소 => LatLng 클래스로 저장해두자.
-
             val latLng = LatLng( mAppointmentData.latitude,  mAppointmentData.longitude )
 
 //            지도 조작 코드

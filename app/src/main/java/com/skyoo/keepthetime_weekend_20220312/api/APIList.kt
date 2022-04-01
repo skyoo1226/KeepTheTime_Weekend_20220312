@@ -10,7 +10,6 @@ import retrofit2.http.*
 interface APIList {
 
 //    로그인 기능 :  POST - /user
-
     @FormUrlEncoded  // POST / PUT / PATCH - formData(앱코드: Field) 에 데이터 첨부시에 필요한 코드
     @POST("/user")
     fun postRequestLogin(
@@ -19,7 +18,6 @@ interface APIList {
     ) : Call<BasicResponse>   // 서버의 응답 본문 (body)을, BasicResponse 클래스 형태로 자동 변환.
 
 //    회원가입 기능 : PUT - /user
-
     @FormUrlEncoded
     @PUT("/user")
     fun putRequestSignUp(
@@ -29,7 +27,6 @@ interface APIList {
     ) : Call<BasicResponse>
 
 //    중복검사 기능 : GET - /user/check
-
     @GET("/user/check") // GET방식은, FormUrlEncoded가 필요 없다.
     fun getRequestDuplicatedCheck(
         @Query("type") type: String,
@@ -49,7 +46,6 @@ interface APIList {
     fun getRequestFriendList(
         @Query("type") type: String,
     ) : Call<BasicResponse>
-
 
     @GET("/search/user")
     fun getRequestSearchUser(

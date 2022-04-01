@@ -41,7 +41,6 @@ class ContextUtil {
 
         }
 
-
 //        TOKEN 항목에, String값을 저장 / 조회 기능
 //          - 메모장이름은 이미 만들어져있다. 항목명은 X. setter / getter 도 X.
 
@@ -56,7 +55,6 @@ class ContextUtil {
             return pref.getString(TOKEN, "")!!
 
         }
-
 
     }
 

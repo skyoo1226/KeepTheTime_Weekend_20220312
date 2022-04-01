@@ -10,10 +10,10 @@ import com.skyoo.keepthetime_weekend_20220312.api.ServerAPI
 
 abstract class BaseFragment : Fragment() {
 
-    //    프래그먼트는 requireContext()로 활용하는게 불편함.
+//    프래그먼트는 requireContext()로 활용하는게 불편함.
     lateinit var mContext: Context
 
-    //    프래그먼트에서도 서버 통신 수행.
+//    프래그먼트에서도 서버 통신 수행.
     lateinit var apiList: APIList
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -28,7 +28,6 @@ abstract class BaseFragment : Fragment() {
         apiList = retrofit.create( APIList::class.java )
 
     }
-
 
 //    모든 프래그먼트들도, 이벤트처리 코드 / 화면 데이터 출력 코드 분리.
 
